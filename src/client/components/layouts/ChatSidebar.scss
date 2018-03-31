@@ -1,0 +1,29 @@
+@import "../../_variables";
+
+.chat-sidebar-wrapper {
+    position: relative;
+    width: 280px;
+    height: 100%;
+    border-right: 1px solid $line-color;
+    .screen {
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 300;
+        &.hidden {
+            display: none;
+        }
+    }
+    .drag-anchor {
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        right: -3px;
+        top: 0;
+        &:hover {
+            cursor: col-resize;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import "../../_variables";
+
+.flex-container-vert-center {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.flex-container-horiz-center {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.svg-viewport {
+    width: 200px;
+    height: 200px;
+}
+.main-view-sub-text {
+    color: $subtext-color;
+    margin-top: 20px;
+    font-size: 24px;
+    animation: main-text-slide-up 0.3s forwards cubic-bezier(0, 0.44, 0, 1);
+}
+@keyframes main-text-slide-up {
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

@@ -1,0 +1,16 @@
+// Global css/resets
+@import "_variables";
+
+html, body, #app {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: "Proxima Nova Rg", Helvetica, sans-serif;
+    background-color: $bg-color;
+    color: $main-text-color;
+}
+
+* {
+    -webkit-user-select: none;
+}
