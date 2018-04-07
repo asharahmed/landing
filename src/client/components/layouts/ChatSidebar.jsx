@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import SearchBar from "../inputs/SearchBar.jsx"
+import NewBtn from "../buttons/NewBtn.jsx"
 import "./ChatSidebar.scss"
 
 export default class ChatSidebar extends Component {
@@ -7,7 +9,7 @@ export default class ChatSidebar extends Component {
         this.state = {
             dragging: false,
             dragOffset: 0,
-            width: 280,
+            width: 300,
             screen: false
         }
     }
@@ -45,6 +47,10 @@ export default class ChatSidebar extends Component {
                                              onMouseLeave={this._onDragEnd.bind(this)}
                                              onContextMenu={this._onDragEnd.bind(this)}></div>
                 <div className="chat-sidebar">
+                    <div className="flex-wrapper-fill-content-vert">
+                        <SearchBar />
+                        <NewBtn />
+                    </div>
                 </div>
                 <div className="drag-anchor" onMouseDown={this._onDragStart.bind(this)}>
                 </div>

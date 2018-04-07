@@ -2,8 +2,10 @@
 
 .chat-sidebar-wrapper {
     position: relative;
-    width: 280px;
+    width: 300px;
     height: 100%;
+    padding: 8px 6px;
+    box-sizing: border-box;
     border-right: 1px solid $line-color;
     .screen {
         width: 100vw;
@@ -14,6 +16,9 @@
         z-index: 300;
         &.hidden {
             display: none;
+        }
+        &:hover {
+            cursor: pointer !important;
         }
     }
     .drag-anchor {

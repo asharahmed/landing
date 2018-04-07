@@ -461,3 +461,8 @@
 	font-weight: 900;
 	font-style: italic;
 }
+@font-face {
+	font-family: 'flik';
+	src: url('./fonts/flik.ttf');
+	font-weight: 300;
+}

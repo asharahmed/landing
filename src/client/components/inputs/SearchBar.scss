@@ -1,0 +1,26 @@
+@import "../../_variables";
+
+.search-bar-wrapper {
+    width: 100%;
+    flex: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    .search-bar-input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        font-family: $main-font;
+        outline: 0;
+        font-size: 14px;
+        border: 0;
+        padding: 7px 10px;
+        border-radius: 7px;
+        background-color: $highlight-color;
+        color: $main-text-color;
+        user-select: auto;
+        -webkit-user-select: auto;
+        &::placeholder {
+            color: $subtext-color;
+        }
+    }
+}

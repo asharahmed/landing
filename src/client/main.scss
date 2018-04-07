@@ -6,11 +6,7 @@ html, body, #app {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: "Proxima Nova Rg", Helvetica, sans-serif;
+    font-family: $main-font;
     background-color: $bg-color;
     color: $main-text-color;
-}
-
-* {
-    -webkit-user-select: none;
 }
