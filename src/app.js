@@ -1,5 +1,5 @@
 const express = require("express"),
-      app = express()
+	app = express()
 
 app.use('/dist', express.static('dist'))
 

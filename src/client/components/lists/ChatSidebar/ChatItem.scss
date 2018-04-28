@@ -1,0 +1,32 @@
+@import "../../../_variables";
+
+.chats-list-item-wrapper {
+	width: 100%;
+	height: 80px;
+	border-radius: $border-radius-standard;
+	background: $highlight-color;
+	.chats-list-item-flex-wrapper {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 100%;
+		.chats-list-item-flex-pfp-wrapper {
+			width: 80px;
+			height: 100%;
+			box-sizing: border-box;
+			padding: 12px;
+			.chats-list-item-flex-pfp {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background-size: cover;
+				background-position: center;
+			}
+		}
+		.chats-list-item-flex-details {
+			width: 100%;
+			height: 100%;
+			flex: 1;
+		}
+	}
+}
