@@ -19,7 +19,7 @@ export default class ChatItem extends Component {
 	}
 	render() {
 		return (
-			<div className="chats-list-item-wrapper">
+			<div className={this.props.data.active ? "chats-list-item-wrapper active" : "chats-list-item-wrapper"}>
 				<div className="chats-list-item-flex-wrapper">
 					<div className="chats-list-item-flex-pfp-wrapper">
 						<div className="chats-list-item-flex-pfp"
@@ -29,7 +29,13 @@ export default class ChatItem extends Component {
 						></div>
 					</div>
 					<div className="chats-list-item-flex-details">
-						<span className="chats-list-item-flex-details-name">{`${this.props.data.firstName} ${this.props.data.lastName}`}</span>
+						<div className="details-time">
+							<span className="details-time-span">{this.state.time}</span>
+						</div>
+						<div className="details-wrapper">
+							<span className="chats-list-item-flex-details-name">{`${this.props.data.firstName} ${this.props.data.lastName}`}</span>
+							<span className="chats-list-item-flex-last-message">{`${this.props.data.lastMessage.body.trunc(25)}`}</span>
+						</div>
 					</div>
 				</div>
 			</div>

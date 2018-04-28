@@ -8,6 +8,12 @@ import { BrowserRouter as Router,
 import MainLayout from "./components/layouts/MainLayout.jsx"
 import "./main.scss"
 
+// string truncuate
+String.prototype.trunc = String.prototype.trunc ||
+      function(n){
+          return (this.length > n) ? this.substr(0, n-1) + '...' : this;
+      };
+
 class Main extends Component {
 	render() {
 		return (
