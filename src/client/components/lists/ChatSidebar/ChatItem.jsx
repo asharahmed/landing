@@ -30,6 +30,7 @@ export default class ChatItem extends Component {
 					</div>
 					<div className="chats-list-item-flex-details">
 						<div className="details-time">
+							<span className="chat-item-badge">1</span>
 							<span className="details-time-span">{this.state.time}</span>
 						</div>
 						<div className="details-wrapper">
