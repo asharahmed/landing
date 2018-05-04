@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import SearchBar from "../inputs/SearchBar.jsx"
 import NewBtn from "../buttons/NewBtn.jsx"
 import ChatItem from "../lists/ChatSidebar/ChatItem.jsx"
@@ -34,6 +35,11 @@ const dummySidebar = {
 	]
 }
 
+@connect(store => {
+	return {
+		conversations: store.conversations.conversations
+	}
+})
 export default class ChatSidebar extends Component {
 	constructor() {
 		super()
@@ -43,6 +49,9 @@ export default class ChatSidebar extends Component {
 			width: 300,
 			screen: false
 		}
+	}
+	componentDidMount() {
+		console.log(this.props)
 	}
 	_onDragStart(e) {
 		this.setState({
@@ -84,7 +93,7 @@ export default class ChatSidebar extends Component {
 					</div>
 					<div className="chats-list-wrapper">
 						{
-							dummySidebar.chats.map((item, i) => <ChatItem data={item}/>)
+							this.props.conversations.map((item, i) => <ChatItem key={i} data={item}/>)
 						}
 					</div>
 				</div>
