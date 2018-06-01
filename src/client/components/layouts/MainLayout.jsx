@@ -19,6 +19,7 @@ export default class MainLayout extends Component {
 			<div className="main-app-wrapper">
 				<div className="flex-wrapper-vert">
 					<div className="main-titlebar-wrapper">
+						<div className="main-titlebar-logo"></div>
 					</div>
 					<Switch>
 						<Route path="/" component={SidebarLayout} />
