@@ -1,41 +1,6 @@
 @import "../../_variables";
 
 .main-app-wrapper {
-	width: 100vw;
-	min-height: 100vh;
-	.flex-wrapper-vert {
-		display: flex;
-		width: 100%;
-		height: 100vh;
-		flex-direction: column;
-		.main-titlebar-wrapper {
-			width: 100%;
-			height: 42px;
-			padding: 5px;
-			-webkit-app-region: drag;
-			box-sizing: border-box;
-			border-bottom: 1px solid $line-color;
-			.main-titlebar-logo {
-				width: 32px;
-				height: 100%;
-				background: url('/dist/img/logo.svg');
-				background-size: contain;
-				background-position: center;
-				background-repeat: no-repeat;
-				transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-				&:hover {
-					transform: scale(1.1);
-					animation: logo-easter-egg 5s infinite;
-					@keyframes logo-easter-egg {
-						0% {
-							filter: hue-rotate(0deg);
-						}
-						100% {
-							filter: hue-rotate(359deg);
-						}
-					}
-				}
-			}
-		}
-	}
+	width: 100%;
+	display: block;
 }

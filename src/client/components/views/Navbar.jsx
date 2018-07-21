@@ -1,15 +1,15 @@
 import React, { Component } from "react"
-import "./MainView.scss"
+import "./Navbar.scss"
 
-export default class MainView extends Component {
+export default class Navbar extends Component {
 	constructor() {
 		super()
 		this.state = {}
 	}
 	render() {
 		return (
-			<div className="main-app-wrapper">
-				
+			<div className="navbar-wrapper">
+
 			</div>
 		)
 	}
