@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
-import store from "./store"
+// import store from "./store"
 import { BrowserRouter as Router, 
 		 Switch,
 		 Route,
@@ -28,4 +28,4 @@ class Main extends Component {
 	}
 }
 
-ReactDOM.render(<Provider store={store}><Main /></Provider>, document.getElementById("app"))
+ReactDOM.render(<Provider><Main /></Provider>, document.getElementById("app"))

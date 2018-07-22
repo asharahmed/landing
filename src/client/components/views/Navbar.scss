@@ -3,5 +3,62 @@
 .navbar-wrapper {
 	width: 100%;
 	height: 160px;
-	background: #eee;
+	display: block;
+	.logo-wrapper {
+		width: 74px;
+		height: 100%;
+		float: left;
+		display: flex;
+		align-items: center;
+		padding-left: 42px;
+		.logo-shadow {
+			width: 74px;
+			height: 74px;
+			border-radius: 37px;
+			background: url("/dist/img/logo.png");
+			background-position: center;
+			background-size: contain;
+			box-shadow: $standard-shadow;
+			transition: $standard-transition;
+			&:hover {
+				box-shadow: $standard-shadow-hover;
+			}
+		}
+	}
+	.right-aligned-links {
+		float: right;
+		height: 100%;
+		padding-right: 37px;
+		.link-wrapper {
+			height: 100%;
+			padding: 0px 5px;
+			display: inline-flex;
+			align-items: center;
+			a.link {
+				background-color: transparent;
+				padding: 5px 10px;
+				border-radius: 30px;
+				font-size: 9px;
+				font-weight: bold;
+				text-decoration: none;
+				color: #22155C;
+				text-transform: uppercase;
+				letter-spacing: 1.12px;
+				transition: $standard-transition;
+				&:hover {
+					background-color: #eeeeee;
+				}
+				&.filled {
+					padding: 16px 30px;
+					background-color: $accent-color;
+					color: #ffffff;
+					box-shadow: $standard-shadow;
+					&:hover {
+						box-shadow: $standard-shadow-hover;
+						background-color: darken($accent-color, 3);
+					}
+				}
+			}
+		}
+	}
 }

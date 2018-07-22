@@ -8,8 +8,22 @@ export default class MainView extends Component {
 	}
 	render() {
 		return (
-			<div className="main-app-wrapper">
-				
+			<div className="main-view-wrapper">
+				<div className="slice-wrapper">
+					<div className="slice-inside">
+						<div className="details">
+							<p className="main-text-hero">
+								Welcome to (secure) messaging for the future.
+							</p>
+							<div className="link-wrapper">
+								<a href="#" className="link">Get it now</a>
+							</div>
+						</div>
+						<div className="image-hero-wrapper">
+							<div className="image-hero"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}

@@ -1,1 +1,66 @@
 @import "../../_variables";
+
+.main-view-wrapper {
+    width: 100%;
+    .slice-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 416px;
+        background-color: $accent-color;
+        .slice-inside {
+            width: 700px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            .details {
+                width: 330px;
+                .main-text-hero {
+                    padding: 0;
+                    margin: 0;
+                    color: #ffffff;
+                    font-weight: bold;
+                    font-size: 33px;
+                    display: block;
+                }
+                .link-wrapper {
+                    margin-top: 50px;
+                    a.link {
+                        background-color: transparent;
+                        border-radius: 30px;
+                        font-size: 9px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        letter-spacing: 1.12px;
+                        padding: 16px 30px;
+                        background-color: $white;
+                        color: #22155C;
+                        box-shadow: $standard-shadow;
+                        transition: $standard-transition;
+                        &:hover {
+                            box-shadow: $standard-shadow-hover;
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+            .image-hero-wrapper {
+                width: 370px;
+                height: 100%;
+                position: relative;
+                .image-hero {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 320px;
+                    height: 373px;
+                    background: url("/dist/img/flik-phone-mockup.png");
+                    background-position: bottom;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
