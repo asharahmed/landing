@@ -1,0 +1,46 @@
+@import "../../_variables";
+
+.feature {
+    width: 124px;
+    padding: 0px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (max-width: 460px) {
+        padding-bottom: 40px;
+    }
+    .feature-circle-wrapper {
+        width: 64px;
+        height: 64px;
+        padding: 12px;
+        box-sizing: border-box;
+        border-radius: 32px;
+        background: $accent-color;
+        box-shadow: $standard-shadow;
+        .feature-circle-image {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    .feature-header-span-wrapper {
+        padding: 20px 0px;
+        .feature-header-span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #22155C;
+        }
+    }
+    .feature-description-wrapper {
+
+        .feature-description {
+            font-size: 10px;
+            color: #8D85B2;
+            line-height: 16px;
+            margin: 0;
+        }
+    }
+}
