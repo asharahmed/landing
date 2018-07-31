@@ -13,7 +13,7 @@ export default class MainView extends Component {
 					<div className="slice-inside">
 						<div className="details">
 							<p className="main-text-hero">
-								Welcome to (secure) messaging for the future.
+								Welcome to (secure) messaging for the modern era.
 							</p>
 							<div className="link-wrapper">
 								<a href="#" className="link">Get it now</a>
