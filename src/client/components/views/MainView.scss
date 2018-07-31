@@ -6,25 +6,42 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        height: 416px;
-        background-color: $accent-color;
+		height: 416px;
+		overflow: hidden;
+		background-color: $accent-color;
+		transition: $standard-transition;
+		@media screen and (max-width: 720px) {
+			height: 700px;
+		}
         .slice-inside {
             width: 700px;
             height: 100%;
             display: flex;
-            align-items: center;
+			align-items: center;
+			@media screen and (max-width: 720px) {
+				flex-direction: column;
+			}
             .details {
                 width: 330px;
                 .main-text-hero {
                     padding: 0;
                     margin: 0;
                     color: #ffffff;
-                    font-weight: bold;
+                    font-weight: 700;
                     font-size: 33px;
-                    display: block;
+					display: block;
+					@media screen and (max-width: 720px) {
+						padding-top: 50px;
+						text-align: center;
+					}
                 }
                 .link-wrapper {
-                    margin-top: 50px;
+					margin-top: 50px;
+					@media screen and (max-width: 720px) {
+						width: 100%;
+						display: flex;
+						justify-content: center;
+					}
                     a.link {
                         background-color: transparent;
                         border-radius: 30px;
@@ -48,11 +65,33 @@
             .image-hero-wrapper {
                 width: 370px;
                 height: 100%;
-                position: relative;
+				position: relative;
+				@media screen and (max-width: 720px) {
+					display: flex;
+					align-items: flex-end;
+					justify-content: center;
+				}
+				animation: image-hero-appear $standard-transition;
+				transform: translateY(100px);
+				opacity: 0;
+				animation-fill-mode: forwards;
+				@keyframes image-hero-appear {
+					0% {
+						opacity: 1;
+						transform: translateY(100px);
+					}
+					100% {
+						opacity: 1;
+						transform: translateY(0px);
+					}
+				}
                 .image-hero {
                     position: absolute;
                     bottom: 0;
-                    right: 0;
+					right: 0;
+					@media screen and (max-width: 720px) {
+						position: initial;
+					}
                     width: 320px;
                     height: 373px;
                     background: url("/dist/img/flik-phone-mockup.png");

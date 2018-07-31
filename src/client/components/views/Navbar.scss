@@ -20,6 +20,15 @@
 			background-size: contain;
 			box-shadow: $standard-shadow;
 			transition: $standard-transition;
+			animation: logo-appear $standard-transition;
+			@keyframes logo-appear {
+				0% {
+					transform: scale(0);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
 			&:hover {
 				box-shadow: $standard-shadow-hover;
 			}
@@ -29,6 +38,45 @@
 		float: right;
 		height: 100%;
 		padding-right: 37px;
+		.links-desktop {
+			height: 100%;
+			opacity: 1;
+			display: block;
+			transition: $standard-transition;
+			animation: links-desktop-appear $standard-transition;
+			@keyframes links-desktop-appear {
+				0% {
+					transform: translateY(30px);
+				}
+				100% {
+					transform: translateY(0px);
+				}
+			}
+			@media screen and (max-width: 600px) {
+				opacity: 0;
+				display: none;
+				animation: none;
+			}
+		}
+		.links-mobile {
+			height: 100%;
+			opacity: 0;
+			display: none;
+			transition: $standard-transition;
+			@media screen and (max-width: 600px) {
+				opacity: 1;
+				display: block;
+				animation: links-mobile-appear $standard-transition;
+				@keyframes links-mobile-appear {
+					0% {
+						transform: translateY(30px);
+					}
+					100% {
+						transform: translateY(0px);
+					}
+				}
+			}
+		}
 		.link-wrapper {
 			height: 100%;
 			padding: 0px 5px;
