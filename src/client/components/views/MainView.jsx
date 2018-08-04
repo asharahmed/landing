@@ -11,7 +11,7 @@ export default class MainView extends Component {
 	render() {
 		return (
 			<div className="main-view-wrapper">
-				<div className="slice-wrapper blue center horizontal">
+				<div className="slice-wrapper blue center horizontal hero-banner">
 					<div className="slice-inside">
 						<div className="details">
 							<p className="main-text-hero">

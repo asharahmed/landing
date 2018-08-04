@@ -7,6 +7,7 @@
         width: 100%;
         height: 416px;
         overflow-x: hidden;
+        transition: $standard-transition;
         &.center {
             justify-content: center;
         }
@@ -26,6 +27,14 @@
         &.responsive {
             min-height: 416px;
             height: auto;
+        }
+        &.hero-banner {
+            @media screen and (max-width: 720px) {
+                height: 700px;
+                .slice-inside {
+                    flex-direction: column;
+                }
+            }
         }
         .slice-inside {
             width: 700px;
