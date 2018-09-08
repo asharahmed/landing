@@ -2,19 +2,7 @@ const express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
 	routers = require("./routers"),
-	client = require("@sendgrid/client")
-
-client.setApiKey(process.env.SENDGRID_API_KEY)
-// let's initialize sendgrid
-const request = {
-	method: "GET",
-	url: "/v3/contactdb/lists/5038953/recipients"
-}
-
-client.request(request)
-	.then(([Response, body]) => {
-		console.log(body)
-	})
+	{ error, success } = require("./responses")
 
 app.use('/dist', express.static('dist'))
 
@@ -24,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use((err, req, res, next) => {
-    if(err) return res.send({err: "Invalid data", code: 1})
+    if(err) return res.send(error.INVALID_DATA)
     next()
 })
 
