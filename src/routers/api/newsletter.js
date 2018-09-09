@@ -14,23 +14,25 @@ router.post("/submitEmail", (req, res) => {
     const request = {
         method: "POST",
         url: "/v3/contactdb/recipients",
-        data: [{
+        body: [{
             email
         }]
     }
     client.request(request)
         .then(([Response, body]) => {
-            if(body.error_count < 0 || !body.persisted_recipents)
-                return res.send({...error.API_ERROR, err: body.errors[0]})
-            const recipId = body.persisted_recipents[0]
-            const request = {
+            console.log(body)
+            if(body.error_count > 0 || !body.persisted_recipients)
+                return res.send({...error.API_ERROR, err: body.errors[0] || "API Error"})
+            const recipId = body.persisted_recipients[0]
+            console.log("found recipient: " + recipId)
+            let nextReq = {
                 method: "POST",
-                url: `https://api.sendgrid.com/v3/contactdb/lists/${list_id}/recipients/${recipId}`,
+                url: `/v3/contactdb/lists/${list_id}/recipients/${recipId}`,
             }
-            return client.request(request)
-        })
-        .then(([Response, body]) => {
-            return res.send(success.NO_ERROR)
+            client.request(nextReq).then(([Response, body]) => {
+                console.log(body)
+                return res.send(success.NO_ERROR)
+            })
         })
 })
 
