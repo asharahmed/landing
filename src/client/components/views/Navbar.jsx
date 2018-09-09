@@ -48,7 +48,9 @@ export default class Navbar extends Component {
 										<input type="email" name="email" className="input slim" placeholder="ENTER AN EMAIL" />
 									</div>
 									<div className="link-wrapper">
-										<input type="submit" href="#" onClick={()=>{}} className="link filled" value="Get Notified" />
+										<button type="submit" href="#" onClick={()=>{}} className="link filled">
+											<span>Get Notified</span>
+										</button>
 									</div>
 								</div>
 							</form>
