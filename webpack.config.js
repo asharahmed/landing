@@ -1,7 +1,7 @@
 module.exports = {
-  entry: [
-    './src/client/main.js'
-  ],
+  entry: {
+    main: ['babel-polyfill', './src/client/main.js']
+  },
   mode: "development",
   module: {
     rules: [

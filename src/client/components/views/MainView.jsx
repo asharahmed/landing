@@ -18,7 +18,7 @@ export default class MainView extends Component {
 								Welcome to (secure) messaging for the modern era.
 							</p>
 							<div className="link-wrapper">
-								<a href="#" className="link">Get it now</a>
+								<a href="#" onClick={e => { e.preventDefault(); this.props.ctaClick(); }} className="link">Get notified when we release</a>
 							</div>
 						</div>
 						<div className="image-hero-wrapper">

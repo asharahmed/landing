@@ -11,13 +11,19 @@ import Navbar from "../views/Navbar.jsx"
 export default class MainLayout extends Component {
 	constructor() {
 		super()
-		this.state = {}
+		this.state = {
+			animTriggered: false
+		}
+	}
+	_ctaClick() {
+		this.setState({animTriggered: true})
+		setTimeout(() => this.setState({animTriggered: false}), 1000)
 	}
 	render() {
 		return (
 			<div className="main-app-wrapper">
-				<Navbar />
-				<Route path="/" component={MainView} />
+				<Navbar animTriggered={this.state.animTriggered} />
+				<Route path="/" component={() => <MainView ctaClick={this._ctaClick.bind(this)} />} />
 			</div>
 		)
 	}
