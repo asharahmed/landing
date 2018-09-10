@@ -11,8 +11,9 @@ router.post("/submitEmail", async (req, res) => {
     const email = req.body.email
     if(!email) return res.send(error.INVALID_DATA)
     let request
+    let Response, body
     try{
-        request = await client.request({
+        [Response, body] = await client.request({
             method: "POST",
             url: "/v3/contactdb/recipients",
             body: [{
@@ -22,16 +23,15 @@ router.post("/submitEmail", async (req, res) => {
     }catch(error) {
         return res.send(error.API_ERROR)
     }
-    let [Response, body] = request
     if(body.error_count > 0 || !body.persisted_recipients)
         return res.send({...error.API_ERROR, err: body.errors[0] || "API Error"})
     let recipId = body.persisted_recipients[0]
     let url = "/v3/contactdb/lists/" + list_id + "/recipients/" + recipId
     try
     {
-        request = await client.request({
+        [Response, body] = await client.request({
             method: "POST",
-            url,
+            url
         })
     }catch(error) {
         return res.send(error.API_ERROR)
