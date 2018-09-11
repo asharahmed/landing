@@ -52,30 +52,30 @@
 					transform: translateY(0px);
 				}
 			}
-			@media screen and (max-width: 600px) {
-				opacity: 0;
-				display: none;
-				animation: none;
-			}
+			// @media screen and (max-width: 600px) {
+			// 	opacity: 0;
+			// 	display: none;
+			// 	animation: none;
+			// }
 		}
 		.links-mobile {
 			height: 100%;
 			opacity: 0;
 			display: none;
 			transition: $standard-transition;
-			@media screen and (max-width: 600px) {
-				opacity: 1;
-				display: block;
-				animation: links-mobile-appear $standard-transition;
-				@keyframes links-mobile-appear {
-					0% {
-						transform: translateY(30px);
-					}
-					100% {
-						transform: translateY(0px);
-					}
-				}
-			}
+			// @media screen and (max-width: 600px) {
+			// 	opacity: 1;
+			// 	display: block;
+			// 	animation: links-mobile-appear $standard-transition;
+			// 	@keyframes links-mobile-appear {
+			// 		0% {
+			// 			transform: translateY(30px);
+			// 		}
+			// 		100% {
+			// 			transform: translateY(0px);
+			// 		}
+			// 	}
+			// }
 		}
 		.newsletter-wrapper {
 			height: 100%;
