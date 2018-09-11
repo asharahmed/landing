@@ -8,6 +8,7 @@ client.setApiKey(process.env.SENDGRID_API_KEY)
 const list_id = "5038953"
 
 router.post("/submitEmail", async (req, res) => {
+    console.log(req.body)
     const email = req.body.email
     if(!email) return res.send(error.INVALID_DATA)
     let request
