@@ -25,7 +25,7 @@ router.post("/submitEmail", async (req, res) => {
         return res.send(error.API_ERROR)
     }
     if(body.error_count > 0 || !body.persisted_recipients)
-        return res.send({...error.API_ERROR, err: body.errors[0] || "API Error"})
+        return res.send({...error.API_ERROR, err: body.errors[0].message || "API Error"})
     let recipId = body.persisted_recipients[0]
     let url = "/v3/contactdb/lists/" + list_id + "/recipients/" + recipId
     try

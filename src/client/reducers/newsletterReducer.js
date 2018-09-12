@@ -12,7 +12,7 @@ export default function reducer(state={
             return {...state, loading: false, completed: false, error: action.payload || true}
         }
         case "SUBMIT_EMAIL_ATTEMPT": {
-            return {...state, completed: false, loading: true}
+            return {...state, completed: false, loading: true, error: false}
         }
         default: {
             return {...state}
