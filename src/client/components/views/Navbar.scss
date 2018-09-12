@@ -11,6 +11,11 @@
 		display: flex;
 		align-items: center;
 		padding-left: 42px;
+		@media screen and (max-width: 600px) {
+			width: 100%;
+			justify-content: center;
+			padding-left: 0;
+		}
 		.logo-shadow {
 			width: 74px;
 			height: 74px;
@@ -38,6 +43,14 @@
 		float: right;
 		height: 100%;
 		padding-right: 37px;
+		@media screen and (max-width: 600px) {
+			// opacity: 0;
+			display: flex;
+			// animation: none;
+			justify-content: center;
+			padding-right: 0;
+			width: 100%;
+		}
 		.links-desktop {
 			height: 100%;
 			opacity: 1;
@@ -52,30 +65,25 @@
 					transform: translateY(0px);
 				}
 			}
-			@media screen and (max-width: 600px) {
-				opacity: 0;
-				display: none;
-				animation: none;
-			}
 		}
 		.links-mobile {
 			height: 100%;
 			opacity: 0;
 			display: none;
 			transition: $standard-transition;
-			@media screen and (max-width: 600px) {
-				opacity: 1;
-				display: block;
-				animation: links-mobile-appear $standard-transition;
-				@keyframes links-mobile-appear {
-					0% {
-						transform: translateY(30px);
-					}
-					100% {
-						transform: translateY(0px);
-					}
-				}
-			}
+			// @media screen and (max-width: 600px) {
+			// 	opacity: 1;
+			// 	display: block;
+			// 	animation: links-mobile-appear $standard-transition;
+			// 	@keyframes links-mobile-appear {
+			// 		0% {
+			// 			transform: translateY(30px);
+			// 		}
+			// 		100% {
+			// 			transform: translateY(0px);
+			// 		}
+			// 	}
+			// }
 		}
 		.newsletter-wrapper {
 			height: 100%;
@@ -89,6 +97,7 @@
 			}
 			.newsletter-inner {
 				padding: 9px 5px;
+				box-sizing: border-box;
 				padding-left: 20px;
 				border-radius: 40px;
 				height: 100%;
