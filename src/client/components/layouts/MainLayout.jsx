@@ -16,6 +16,7 @@ export default class MainLayout extends Component {
 		}
 	}
 	_ctaClick() {
+		document.querySelector("html").scrollTop = 0;
 		this.setState({animTriggered: true})
 		setTimeout(() => this.setState({animTriggered: false}), 1000)
 	}

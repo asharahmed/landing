@@ -6,13 +6,13 @@ export default function reducer(state={
 }, action) {
     switch(action.type) {
         case "SUBMIT_EMAIL_SUCCESS": {
-            return {...state, completed: true, error: false}
+            return {...state, loading: false, completed: true, error: false}
         }
         case "SUBMIT_EMAIL_ERROR": {
-            return {...state, completed: false, error: action.payload || true}
+            return {...state, loading: false, completed: false, error: action.payload || true}
         }
-        case "SUBMIT_ERROR_ATTEMPT": {
-            return {...state, completed: false, loading: true}
+        case "SUBMIT_EMAIL_ATTEMPT": {
+            return {...state, completed: false, loading: true, error: false}
         }
         default: {
             return {...state}

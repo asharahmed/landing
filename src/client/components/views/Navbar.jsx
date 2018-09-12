@@ -2,10 +2,12 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { submitEmail } from "../../actions/newsletterActions"
 import "./Navbar.scss"
+import Check from "../svg/Check";
+import CircleSpinner from "../svg/CircleSpinner";
 
 @connect((store) => {
 	return {
-		newsletter: store
+		newsletter: store.newsletter
 	}
 })
 export default class Navbar extends Component {
@@ -48,8 +50,24 @@ export default class Navbar extends Component {
 										<input type="email" name="email" className="input slim" placeholder="ENTER AN EMAIL" />
 									</div>
 									<div className="link-wrapper">
-										<button type="submit" href="#" onClick={()=>{}} className="link filled">
-											<span>Get Notified</span>
+										<button disabled={this.props.loading ? true : false} type="submit" href="#" onClick={()=>{}} className="link filled no-padding">
+											<div className="button-steps-container">
+												<div className="button-step-wrapper">
+													<div className={"step-container initial " + ((!this.props.newsletter.loading) && (!this.props.newsletter.completed) ? "active" : "")}>
+														<span>Get Notified</span>
+													</div>
+												</div>
+												<div className="button-step-wrapper icon-padding">
+													<div className={"step-container loading " + (this.props.newsletter.loading ? "active" : "")}>
+														<CircleSpinner />
+													</div>
+												</div>
+												<div className="button-step-wrapper icon-padding">
+													<div className={"step-container success " + (this.props.newsletter.completed ? "active" : "")}>
+														<Check animated={true}/>
+													</div>
+												</div>
+											</div>
 										</button>
 									</div>
 								</div>
