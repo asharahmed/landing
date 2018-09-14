@@ -18,6 +18,6 @@ app.use((err, req, res, next) => {
 
 app.use("/api", routers.api)
 
-app.get("/", (req, res) => res.sendFile(__dirname + "/client/index.html"))
+app.get("*", (req, res) => res.sendFile(__dirname + "/client/index.html"))
 
 app.listen(process.env.PORT || 3000, () => console.log(`Listening on port ${process.env.PORT || 3000}`))
