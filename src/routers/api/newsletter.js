@@ -1,7 +1,11 @@
 const express = require("express"),
     router = express.Router(),
     { error, success } = require("../../responses"),
-    client = require("@sendgrid/client")
+    fs = require("fs"),
+    handlebars = require("handlebars"),
+    client = require("@sendgrid/client"),
+    path = require("path"),
+    appDir = path.dirname(require.main.filename)
 
 client.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -36,7 +40,42 @@ router.post("/submitEmail", async (req, res) => {
         })
     }catch(error) {
         return res.send(error.API_ERROR)
-    } 
+    }
+    const source = fs.readFileSync(appDir + "/emails/newsletter-join.hbs", 'utf8')
+	const template = handlebars.compile(source, { strict: true })
+    const result = template({email})
+    console.log(result)
+    try{
+        [Response, body] = await client.request({
+            method: "POST",
+            url: "/v3/mail/send",
+            body: {
+                "personalizations": [
+                    {
+                      "to": [
+                        {
+                          email
+                        }
+                      ],
+                      "subject": "Welcome to the Flik Newsletter!"
+                    }
+                  ],
+                  "from": {
+                    "email": "hello@flik.im",
+                    "name": "Flik Team"
+                  },
+                  "content": [
+                    {
+                      "type": "text/html",
+                      "value": result
+                    }
+                  ]
+            }
+        })
+    }catch(error) {
+        return res.send(error.API_ERROR)
+    }
+
     return res.send(success.NO_ERROR)
 })
 
