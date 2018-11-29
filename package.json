@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "build": "webpack-cli",
+    "build-prod": "webpack-cli --config webpack.prod.js",
     "watch": "webpack-cli -w"
   },
   "babel": {
@@ -51,6 +52,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-merge": "^4.1.4"
   }
 }

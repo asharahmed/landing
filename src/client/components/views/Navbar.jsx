@@ -16,7 +16,6 @@ export default class Navbar extends Component {
 		this.state = {}
 	}
 	componentDidMount() {
-		console.log(this.props.newsletter)
 	}
 	_emailSubmit(e) {
 		e.preventDefault()

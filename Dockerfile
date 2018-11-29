@@ -13,6 +13,6 @@ RUN npm install
 COPY . .
 
 # Run webpack and build our app
-RUN npm run build
+RUN npm run build-prod
 
 CMD [ "npm", "start"]
