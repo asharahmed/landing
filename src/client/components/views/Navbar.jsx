@@ -7,24 +7,40 @@ import CircleSpinner from "../svg/CircleSpinner";
 
 @connect((store) => {
 	return {
-		newsletter: store.newsletter
+		newsletter: store.newsletter,
+		animations: store.animations
 	}
 })
 export default class Navbar extends Component {
 	constructor() {
 		super()
-		this.state = {}
+		this.state = {
+			emailInvalid: false
+		}
+		this._invalidEmail = this._invalidEmail.bind(this)
+		this.invalidTimeout = null
 	}
-	componentDidMount() {
+	componentWillUnmount() {
+		// To prevent memory leaks.
+		clearTimeout(this.invalidTimeout)
 	}
 	_emailSubmit(e) {
 		e.preventDefault()
 
 		let email = e.target.email.value
-		if(!email || !email.includes("@") || !email.includes(".")) return
-		console.log("good!")
+		if(!email || !email.includes("@") || !email.includes(".")) 
+			return this._invalidEmail()
 		this.props.dispatch(submitEmail(email))
+	}
+	_invalidEmail() {
+		this.setState({
+			emailInvalid: true
+		})
 
+		clearTimeout(this.invalidTimeout)
+		this.invalidTimeout = setTimeout(() => this.setState({
+			emailInvalid: false
+		}), 1000)
 	}
 	render() {
 		return (
@@ -44,9 +60,9 @@ export default class Navbar extends Component {
 						}
 						<div className="newsletter-wrapper">
 							<form onSubmit={this._emailSubmit.bind(this)}>
-								<div className={this.props.animTriggered ? "newsletter-inner triggered" : "newsletter-inner"}>
+								<div className={this.props.animations.highlightEmailField ? "newsletter-inner triggered" : "newsletter-inner"}>
 									<div className="link-wrapper">
-										<input type="email" name="email" className="input slim" placeholder="ENTER AN EMAIL" />
+										<input type="email" name="email" className={`input slim ${this.state.emailInvalid ? "invalid" : ""}`} placeholder="ENTER AN EMAIL" />
 									</div>
 									<div className="link-wrapper">
 										<button disabled={this.props.loading ? true : false} type="submit" href="#" onClick={()=>{}} className="link filled no-padding">

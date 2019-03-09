@@ -1,12 +1,28 @@
 import React, { Component } from "react"
 import "./MainView.scss"
 
+import { connect } from "react-redux"
 import Feature from "../displays/Feature.jsx"
+import { highlightEmailField, unHighlightEmailField } from "../../actions/animationsActions"
 
+@connect(store => {
+	return {
+
+	}
+})
 export default class MainView extends Component {
 	constructor() {
 		super()
 		this.state = {}
+		this.timeout = null
+	}
+	ctaClick(e) {
+		e.preventDefault()
+
+		clearTimeout(this.timeout)
+		document.querySelector("html").scrollTop = 0;
+		this.props.dispatch(highlightEmailField())
+		this.timeout = setTimeout(() => this.props.dispatch(unHighlightEmailField()), 1000)
 	}
 	render() {
 		return (
@@ -18,7 +34,7 @@ export default class MainView extends Component {
 								Welcome to (secure) messaging for the modern era.
 							</p>
 							<div className="link-wrapper">
-								<a href="#" onClick={e => { e.preventDefault(); this.props.ctaClick(); }} className="link">Get notified when we release</a>
+								<a href="#" onClick={this.ctaClick.bind(this)} className="link">Get notified when we release</a>
 							</div>
 						</div>
 						<div className="image-hero-wrapper">
@@ -50,7 +66,7 @@ export default class MainView extends Component {
 										description: "Flik's app is super easy and fun to use. In addition, it is available on iOS, Android, Windows, macOS, Linux, and even on the web."
 									}
 								].map((i, index) => (
-									<div className="animated-feature" style={{
+									<div key={index} className="animated-feature" style={{
 										animationDelay: (0.05 * index) + "s"
 									}}>
 										<Feature 
