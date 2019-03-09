@@ -34,26 +34,30 @@ export default class MainView extends Component {
 						<div className="features-grid">
 							{
 								[
-									(<Feature 
-										icon="/dist/img/flik-secure-white.svg"
-										header="Secure"
-										description="Flik uses leading encryption algorithms to ensure all your chats are safe from prying eyes: the government, your neighbor, and even your cat."
-									/>),
-									(<Feature 
-										icon="/dist/img/flik-cloud-white.svg"
-										header="Cloud-synced"
-										description="Flik stores all your (fully encrypted) messages in the cloud, meaning they are available on all devices simultaneously."
-									/>),
-									(<Feature 
-										icon="/dist/img/flik-ui-white.svg"
-										header="Simple"
-										description="Flik's app is super easy and fun to use. In addition, it is available on iOS, Android, Windows, macOS, Linux, and even on the web."
-									/>),
+									{
+										icon: "/dist/img/flik-secure-white.svg",
+										header: "Secure",
+										description: "Flik uses leading encryption algorithms to ensure all your chats are safe from prying eyes: the government, your neighbor, and even your cat."
+									},
+									{
+										icon: "/dist/img/flik-cloud-white.svg",
+										header: "Cloud-synced",
+										description: "Flik stores all your messages, fully encrypted, in the cloud, meaning they are available on all devices simultaneously."
+									},
+									{
+										icon: "/dist/img/flik-ui-white.svg",
+										header: "Simple",
+										description: "Flik's app is super easy and fun to use. In addition, it is available on iOS, Android, Windows, macOS, Linux, and even on the web."
+									}
 								].map((i, index) => (
 									<div className="animated-feature" style={{
 										animationDelay: (0.05 * index) + "s"
 									}}>
-										{ i }
+										<Feature 
+											icon={i.icon}
+											header={i.header}
+											description={i.description}
+										></Feature>
 									</div>
 								))
 							}
